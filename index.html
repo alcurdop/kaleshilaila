@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Laila ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        
+        h1 {
+            position: absolute;
+            top: 10%;
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .envelope {
+            position: absolute;
+            top: 40%;
+            width: 150px;
+            height: 100px;
+            background: #ff4b5c;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .envelope:hover {
+            background: #ff7b8f;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('https://i.imgur.com/O0T7Agy.png') no-repeat center/contain;
+            animation: floatHeart 3s infinite ease-in-out;
+        }
+        
+        @keyframes floatHeart {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+        
+        .teddy {
+            position: absolute;
+            bottom: -100px;
+            width: 80px;
+            height: 80px;
+            background: url('https://i.imgur.com/U3A2O1X.png') no-repeat center/contain;
+            animation: floatTeddy 4s infinite ease-in-out;
+        }
+        
+        @keyframes floatTeddy {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Dear Laila, I Love You ❤️</h1>
+    <div class="envelope" onclick="openMessage()">📩 Click Me</div>
+    
+    <script>
+        function openMessage() {
+            window.location.href = 'message.html';
+        }
+        
+        function generateTeddies() {
+            for (let i = 0; i < 5; i++) {
+                let teddy = document.createElement('div');
+                teddy.className = 'teddy';
+                document.body.appendChild(teddy);
+                teddy.style.left = Math.random() * window.innerWidth + 'px';
+                teddy.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                setTimeout(() => teddy.remove(), 4000);
+            }
+        }
+        
+        function generateHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart';
+                document.body.appendChild(heart);
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+        
+        setInterval(generateTeddies, 2000);
+        setInterval(generateHearts, 1000);
+    </script>
+</body>
+</html>
